@@ -93,6 +93,7 @@ class Temporada(models.Model):
 class Episodio(models.Model):
     nome = models.CharField(max_length=100, verbose_name = "Título")
     temporada = models.ForeignKey(Temporada, on_delete = models.CASCADE, verbose_name = "Temporada")
+    numero = models.IntegerField(verbose_name="Número do episódio")
     duracao = models.CharField(max_length=100, verbose_name = "Duração")
     data = models.DateField(verbose_name = "Data de lançamento")
 
