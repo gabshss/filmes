@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes e Edição do Filme</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <a href="/" class="btn btn-warning">Voltar para a Home</a>
+   
+    <h2>Detalhes do Filme: {{ filme.titulo }}</h2>
+
+
+    <p>Título: {{ filme.titulo }}</p>
+    <p>Gênero: {{ filme.genero }}</p>
+    <p>Diretor: {{ filme.diretor }}</p>
+    <p>Duração: {{ filme.duracao }}</p>
+    <p>País: {{ filme.pais }}</p>
+    <p>Data de Publicação: {{ filme.data }}</p>
+    <p>Nota: {{ filme.nota }}</p>
+
+
+    <h3 class="mt-4">Editar Filme</h3>
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <b><li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color: red;">{{ message }}</li></b>
+        {% endfor %}
+      </ul>
+    {% endif %}
+   
+    <form method="post">
+      {% csrf_token %}
+      {{ form }}
+    <button type="submit" class="btn btn-success btn-block btn-lg mt-2">Salvar Edições do filme</button>
+   
+    </form>
+    <br>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import filme, Serie
+from .models import Filme, Serie
 
 class FilmeForm(forms.ModelForm):
     class Meta:

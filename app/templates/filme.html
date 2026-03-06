@@ -78,7 +78,7 @@
             </tr>
         </thead>
 
-        <tbody>
+       <tbody>
             {% for filme in filmes %}
             <tr>
                 <td>{{ filme.titulo }}</td>
@@ -88,8 +88,9 @@
                 <td>{{ filme.pais }}</td>
                 <td>{{ filme.data|date:"d/m/Y" }}</td>
                 <td>{{ filme.nota }}</td>  
-                <td><a href="delete/{{ filmes.id }}" class="btn btn-danger">Excluir</a></td>
-                <td><a href="editar/{{ filmes.id }}" class="btnbtn-warning">Editar</a></td>    
+                <td><a href="delete/{{ filme.id }}" class="btn btn-danger">Excluir</a></td>
+                <td><a href="editar/{{ filme.id }}" class="btn btn-warning">Editar</a></td>
+                    
             </tr>
             {% endfor %}
         </tbody>

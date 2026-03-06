@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.views import View
 from django.contrib import messages
-
+from .forms import FilmeForm, SerieForm
 
 class IndexView(View):
 
@@ -80,7 +80,7 @@ class EditarFilmeView(View):
 
     def get(self, request, id, *args, **kwargs):
         filme = get_object_or_404(Filme, id=id)
-        form = LivroForm(instance=filme)
+        form = FilmeForm(instance=filme)
         return render(request, self.template_name, {
             'filme': filme,
             'form': form
@@ -101,11 +101,11 @@ class EditarFilmeView(View):
         })
 
 class EditarSerieView(View):
-    template_name = 'editar_livro.html'
+    template_name = 'editar_serie.html'
 
     def get(self, request, id, *args, **kwargs):
         serie = get_object_or_404(Serie, id=id)
-        form = LivroForm(instance=serie)
+        form = SerieForm(instance=serie)
         return render(request, self.template_name, {
             'serie': serie,
             'form': form
@@ -113,7 +113,7 @@ class EditarSerieView(View):
 
     def post(self, request, id, *args, **kwargs):
         serie = get_object_or_404(Serie, id=id)
-        form = LivroForm(request.POST, instance=serie)
+        form = SerieForm(request.POST, instance=serie)
 
         if form.is_valid():
             form.save()
