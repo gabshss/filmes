@@ -13,11 +13,11 @@ class IndexView(View):
         pass
 
 def index(request):
-    series = Serie.objects.all().order_by('titulo')[:5]
+    filmes = Filme.objects.all().order_by('titulo')[:5]
     series = Serie.objects.all().order_by('titulo')[:5]
 
     return render(request, 'index.html', {
-        'series': series,
+        'filmes': filmes,
         'series': series
     })
 
@@ -63,17 +63,17 @@ def episodio(request):
 
 class DeleteFilmeView(View):
     def get(self, request, id, *args, **kwargs):
-        filme = filme.objects.get(id=id)
+        filme = get_object_or_404(Filme, id=id)
         filme.delete()
         messages.success(request, 'Filme excluído com sucesso!') # Success message
-        return redirect('filmes')
+        return redirect('filme')
 
 class DeleteSerieView(View):
     def get(self, request, id, *args, **kwargs):
-        serie = SerieAdmin.objects.get(id=id)
+        serie = get_object_or_404(Serie, id=id)
         serie.delete()
         messages.success(request, 'Série excluída com sucesso!') # Success message
-        return redirect('series')
+        return redirect('serie')
 
 class EditarFilmeView(View):
     template_name = 'editar_filme.html'
@@ -93,7 +93,7 @@ class EditarFilmeView(View):
         if form.is_valid():
             form.save()
             messages.success(request, 'Filme atualizado com sucesso!')
-            return redirect('editar', id=id)
+            return redirect('editar_filme', id=id)
 
         return render(request, self.template_name, {
             'filme': filme,
@@ -118,7 +118,7 @@ class EditarSerieView(View):
         if form.is_valid():
             form.save()
             messages.success(request, 'Série atualizadoa com sucesso!')
-            return redirect('editar', id=id)
+            return redirect('editar_serie', id=id)
 
         return render(request, self.template_name, {
             'serie': serie,

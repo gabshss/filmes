@@ -39,13 +39,13 @@
                     <a class="nav-link" href="/pessoa/">Pessoas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/genero/">Gênero</a>
+                    <a class="nav-link" href="/genero/">Gêneros</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/pais/">Países</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/continente/">Continente</a>
+                    <a class="nav-link" href="/continente/">Continentes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/temporada/">Temporadas</a>
@@ -67,7 +67,7 @@
         <thead class="thead-dark">
             <tr>
                 <th>Série</th>
-                <th>Quantidade de Temporadas</th>
+                <th>Temporada</th>
             </tr>
         </thead>
 
@@ -75,7 +75,7 @@
             {% for temporada in temporadas %}
             <tr>
                 <td>{{ temporada.serie }}</td>
-                <td>{{ temporada.numero }} temporada(s)</td>
+                <td>{{ temporada.numero }}ª</td>
             </tr>
             {% endfor %}
         </tbody>
